@@ -14,21 +14,21 @@ public class FBElasticImport {
     static String elasticPort = "9200" ;
     static String elasticIndex = "a23643000";
     static String elasticIndexType = "data";
-    static String pageName = "Marvel";
+    static String pageName = "ipetgroup";
     // 2017-09-02
-    static long start = 1512604800;
+    static long start = 1512872999;
     // 往前抓抓取日期數
-    static int days = 10;
+    static int days = 50;
     // 每日抓取文章上限 (上限1000)
-    static int maxPosts = 10;
-    static String access_token = "EAACEdEose0cBAOMpKcsDykSx4YmmGalFUhejtE9FbsGLNiAZA4CyWLaOP86ZAVBq2VRnf41NHM3CzyPZBIpO0ZC2Rkae8MwEMBS7TXYgcmMNZB6587PaswTpXjtwMq5y9ARhj9uL4VpZCxY9y4XvZAKVAyCL1X9p2RLpRqihR6EPSDCHtsgrQqxC6NZAhiveCRg15BAZB3nCoBQZDZD";
+    static int maxPosts = 50;
+    static String access_token = "EAACEdEose0cBACSHbI9jGZB8zJPt5kOp5wQLvrUm7y4ntptjUaiCACZASNNDKxJqPELkW6BwGqn7f9rxcXBVrEs6V2VdfQH9vQtxZCsTr969OsX7yFZBhiTD9XUakHeuzKmprNrlIRZBEGA858Qo0BrVrLqvVUdkOFwr2soVgifHtrhMvZCTxyN9YKeK1uGuQpZCtZA6JqCBsgZDZD";
 
     public static void main(String[] args) {
 
         for (long datatime = start ; datatime > start-86400*days ;datatime-=86400) {
             String uri =
                     "https://graph.facebook.com/v2.6"
-                            + "/"+pageName +"/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="+(datatime-3600*8)+"&until="+datatime+"&limit="+maxPosts
+                            + "/"+pageName +"/posts?fields=message,comments.limit(0).summary(true),likes.limit(0).summary(true),created_time&since="+(datatime-3600*24)+"&until="+datatime+"&limit="+maxPosts
                             + "&access_token="+access_token;
 
 
